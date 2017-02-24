@@ -1,0 +1,14 @@
+#迭代器
+#如果给定一个 list 或 tuple，我们可以通过 for 循环来遍历这个 list 或tuple，这种遍历我们称为迭代（Iteration）。
+
+d = {'a': 1, 'b': 2, 'c': 3}
+for key in d:
+	print(key)
+
+for ch in 'SCOT':
+	print(ch)
+
+#Python 内置的 enumerate 函数可以把一个 list 变成索引-元素对，这样就可以在 for 循环中同时迭代索引和元素本身：
+for i , value in enumerate([12,32,56]):
+	print(i,value)
+

@@ -1,0 +1,66 @@
+#GUI
+#Python 支持多种图形界面的第三方库
+#但是 Python 自带的库是支持 Tk 的 Tkinter，
+
+
+
+
+
+
+
+#Tkinter
+#Tk 是一个图形库，支持多个操作系统，使用 Tcl 语言开发；
+#Tk 会调用操作系统提供的本地 GUI 接口，完成最终的 GUI。
+
+from tkinter import *
+
+class Application(Frame):
+	def __init__(self, master=None):
+		Frame.__init__(self, master)
+		self.pack()
+		self.createWidgets()
+
+	def createWidgets(self):
+		self.helloLabel = Label(self, text='Hello, world!')
+		self.helloLabel.pack()
+		self.quitButton = Button(self, text='Quit', command=self.quit)
+		self.quitButton.pack()
+
+app = Application()
+# 设置窗口标题:
+app.master.title('Hello World')
+# 主消息循环:
+app.mainloop()
+
+
+
+#第二个GUI
+
+def center_window(w = 300, h = 200):
+	ws = root.winfo_screenwidth()
+	hs = root.winfo_screenheight()
+	x = (ws/2) - (w/2)
+	y = (hs/2) - (h/2)
+	root.geometry("%dx%d+%d+%d" % (w, h, x, y))
+
+root = Tk(className='python gui')
+center_window(500, 300)
+root.mainloop()
+
+
+#GUI 程序的主线程负责监听来自操作系统的消息，并依次处理每一条消
+#息。因此，如果消息处理非常耗时，就需要在新线程中处理。
+
+
+
+
+#Python 内置的 Tkinter 可以满足基本的 GUI 程序的要求，如果是非常复
+#杂的 GUI 程序，建议用操作系统原生支持的语言和库来编写
+
+
+
+
+
+
+
+

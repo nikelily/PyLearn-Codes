@@ -1,0 +1,43 @@
+#StringIO 和 BytesIO
+
+#StringIO 顾名思义就是在内存中读写 str。
+from io import StringIO
+f = StringIO()
+w = f.write('hello there')
+print(w)
+print(f.getvalue())
+
+
+f2 = StringIO('hello!\nhi!\ngoodbye')
+while True:
+	s = f2.readline()
+	if s =='':
+		break
+	print(s.strip())
+
+
+
+#BytesIO
+#StringIO操作的只能是str，如果要操作二进制数据，就需要使用BytesIO。
+
+from io import BytesIO
+f3 = BytesIO()
+w = f3.write('这是一个有意思的故事'.encode('utf-8'))
+print(w)
+print(f3.getvalue())
+
+#和 StringIO 类似，可以用一个 bytes 初始化 BytesIO，然后，像读文件一样读取：
+f4 = BytesIO(b'\xe4\xb8\xad\xe6\x96\x87')
+f4.read()
+
+
+
+
+
+
+
+
+
+
+
+

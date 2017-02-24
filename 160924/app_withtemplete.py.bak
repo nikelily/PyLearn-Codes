@@ -1,0 +1,35 @@
+#使用模板
+
+
+from flask import Flask,request, render_template
+
+#Flask 通过 render_template()函数来实现模板的渲染。
+
+app = Flask(__name__)
+
+@app.route('/', methods=['GET', 'POST'])
+def home():
+	return render_template('home.html')
+
+
+@app.route('/signin', methods=['GET'])
+def signin_form():
+	return render_template('form.html')
+
+
+@app.route('/signin', methods=['POST'])
+def signin():
+	# 需要从 request 对象读取表单内容：
+	if request.form['username']=='admin' and request.form['password']=='password':
+		return render_template('signin-ok.html', username=username)
+	return render_template('form.html', message='Bad username or password', username=username)
+
+
+if __name__ == '__main__':
+ app.run()
+
+
+
+
+
+

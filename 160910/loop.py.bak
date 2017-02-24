@@ -1,0 +1,14 @@
+#loop states
+#Python 的循环有两种：
+
+#一种是 for...in 循环，依次把 list 或 tuple 中的每个元素迭代出来:
+
+names = ['scott','bob','tracy']
+for name in names:
+	print(name)
+
+# range()函数，可以生成一个整数序列
+sum = 0
+for x in range(101):
+	sum +=x
+print(sum)

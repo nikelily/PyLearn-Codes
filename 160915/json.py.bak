@@ -1,0 +1,13 @@
+#json
+
+#JSON 类型 Python 类型
+#{} dict
+#[] list
+#"string" str
+#1234.56 int 或 float
+#true/false True/False
+#null None
+
+
+
+

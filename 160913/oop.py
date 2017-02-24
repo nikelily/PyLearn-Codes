@@ -1,0 +1,98 @@
+#oop
+
+class Student(object):
+	def __init__(self,name,score):
+		self.name = name
+		self.score = score
+
+	def printInfo(self):
+		print(self.name)
+		print(self.score)
+
+bart = Student('scott',22)
+print(bart)
+print(Student)
+bart.printInfo()
+
+
+
+#访问限制
+#如果要让内部属性不被外部访问，可以把属性的名称前加上两个下划线
+#__，在 Python 中，实例的变量名如果以__开头，就变成了一个私有变量（private）
+class Student2(object):
+	def __init__(self,name,score):
+		self.__name = name
+		self.__score = score
+
+	def printInfo(self):
+		print(self.__name)
+		print(self.__score)
+
+
+#双下划线开头的实例变量是不是一定不能从外部访问呢？其实也不是。
+#不能直接访问__name 是因为 Python 解释器对外把__name 变量改成了
+#_Student__name，所以，仍然可以通过_Student__name 来访问__name 变量：
+
+
+
+
+
+
+#使用 type()
+def func1():
+	print()
+
+print(type(123))
+print(type('heheda'))
+print(type(None))
+print(type(bart))
+print(type(func1))
+
+print(type(123)==type(123234))
+print(type(123)==type('hehe'))
+import types
+print(type(func1) == types.FunctionType)
+
+
+
+
+#使用 isinstance()
+#能用 type()判断的基本类型也可以用 isinstance()判断：
+#并且还可以判断一个变量是否是某些类型中的一种，比如下面的代码就可以判断是否是 list 或者 tuple：
+print(isinstance(bart,Student))
+print(isinstance(123,int))
+print(isinstance(b'a',bytes))
+print(isinstance([1,2,3,4,5],(list,tuple)))
+
+
+
+
+
+#使用 dir()
+#要获得一个对象的所有属性和方法，可以使用 dir()函数，它返回一个包含字符串的 list
+print(dir(bart))
+print(dir('asda'))
+
+
+
+
+#实例属性和类属性
+#由于 Python 是动态语言，根据类创建的实例可以任意绑定属性。
+#给实例绑定属性的方法是通过实例变量，或者通过 self 变量：
+class Student3(object):
+	faq = 'nope'
+	def __init__(self, name):
+		self.name = name
+
+s = Student3('scoco')
+s.score = 90
+
+print(s.name)
+print(s.score)
+print(Student3.faq) # 打印类的 name 属性
+del s.score
+#print(s.score)
+
+
+
+
